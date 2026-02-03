@@ -1,0 +1,64 @@
+{
+  "mcpServers": {
+    "semrush-remote": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "https://semrush-mcp-server.daniele-pisciottano.workers.dev/mcp",
+        "--transport",
+        "http-only"
+      ]
+    },
+    "mcp-gsc-server-remote": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "https://mcp-gsc-remote-moca.daniele-pisciottano.workers.dev/mcp",
+        "--transport",
+        "http-only"
+      ]
+    },
+    "mcp-ga4-remote": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "https://ga4-mcp-server.daniele-pisciottano.workers.dev/mcp",
+        "--transport",
+        "http-only"
+      ]
+    },
+      "mcp-meta": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "https://meta-mcp-server.daniele-pisciottano.workers.dev/mcp",
+        "--transport",
+        "http-only"
+      ]
+    },
+    "mcp-reddit-remote": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "https://reddit-mcp-server.daniele-pisciottano.workers.dev/mcp",
+        "--transport",
+        "http-only"
+      ]
+    },
+     "mcp-gads-remote": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "https://google-ads-mcp-server.daniele-pisciottano.workers.dev/mcp",
+        "--transport",
+        "http-only"
+      ]
+    }
+  }
+}
