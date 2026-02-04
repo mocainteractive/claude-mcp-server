@@ -173,60 +173,93 @@ def create_claude_config():
     
     # Configurazione MCP con TUTTI i server (5 in totale)
     mcp_config = {
-        "mcpServers": {
-            "mcp-gsc-server-remote": {
-                "command": "npx",
-                "args": [
-                    "-y",
-                    "mcp-remote",
-                    "https://mcp-gsc-remote-moca.daniele-pisciottano.workers.dev/mcp",
-                    "--transport",
-                    "http-only"
-                ]
+        {
+          "mcpServers": {
+            "apify": {
+              "command": "npx",
+              "args": [
+                "-y",
+                "@apify/actors-mcp-server",
+                "--tools",
+                "actors,docs,curious_coder/facebook-ads-library-scraper,apify/rag-web-browser,amernas/google-ads-transparency-scraper,xtech/google-ad-transparency-scraper,apify/web-scraper"
+              ],
+              "env": {
+                "APIFY_TOKEN": "INSERISCI LA CHIAVE API DEL TUO APIFY"
+              }
             },
-        	"mcp-meta": {
-     			"command": "npx",
-      			"args": [
-       				"-y",
-       				"mcp-remote",
-        			"https://meta-mcp-server.daniele-pisciottano.workers.dev/mcp",
-       				"--transport",
-        			"http-only"
-      			]
+            "mcp-gsc-server-remote": {
+              "command": "npx",
+              "args": [
+                "-y",
+                "mcp-remote",
+                "https://mcp-gsc-remote-moca.daniele-pisciottano.workers.dev/mcp",
+                "--transport",
+                "http-only"
+              ]
             },
             "mcp-ga4-remote": {
-                "command": "npx",
-                "args": [
-                    "-y",
-                    "mcp-remote",
-                    "https://mcp-ga4-remote-v2.daniele-pisciottano.workers.dev/mcp",
-                    "--transport",
-                    "http-only"
-                ]
+              "command": "npx",
+              "args": [
+                "-y",
+                "mcp-remote",
+                "https://ga4-mcp-server.daniele-pisciottano.workers.dev/mcp",
+                "--transport",
+                "http-only"
+              ]
+            },
+              "mcp-meta": {
+              "command": "npx",
+              "args": [
+                "-y",
+                "mcp-remote",
+                "https://meta-mcp-server.daniele-pisciottano.workers.dev/mcp",
+                "--transport",
+                "http-only"
+              ]
             },
             "mcp-reddit-remote": {
-                "command": "npx",
-                "args": [
-                    "-y",
-                    "mcp-remote",
-                    "https://reddit-mcp-server.daniele-pisciottano.workers.dev/mcp",
-                    "--transport",
-                    "http-only"
-                ]
+              "command": "npx",
+              "args": [
+                "-y",
+                "mcp-remote",
+                "https://reddit-mcp-server.daniele-pisciottano.workers.dev/mcp",
+                "--transport",
+                "http-only"
+              ]
             },
-            "mcp-gads-remote": {
-                "command": "npx",
-                "args": [
-                    "-y",
-                    "mcp-remote",
-                    "https://google-ads-mcp-server.daniele-pisciottano.workers.dev/mcp",
-                    "--transport",
-                    "http-only"
-                ]
+            "dataforseo": {
+              "command": "npx",
+              "args": [
+                "-y",
+                "dataforseo-mcp-server"
+              ],
+              "env": {
+                "DATAFORSEO_USERNAME": "PLACEHOLDER",
+                "DATAFORSEO_PASSWORD": "PLACEHOLDER"
+              }
+            },
+            "seozoom": {
+              "command": "npx",
+              "args": [
+                "mcp-remote",
+                "https://sznew.seozoom.it/mcp/",
+                "--header",
+                "Authorization: Bearer AK-6af2b0d268e62afd11fd51859e5d3b02"
+              ],
+              "disabled": true
+            }, 
+             "mcp-gads-remote": {
+              "command": "npx",
+              "args": [
+                "-y",
+                "mcp-remote",
+                "https://google-ads-mcp-server.daniele-pisciottano.workers.dev/mcp",
+                "--transport",
+                "http-only"
+              ]
             }
+          }
         }
-    }
-    
     try:
         # Crea la directory se non esiste
         config_dir.mkdir(parents=True, exist_ok=True)
