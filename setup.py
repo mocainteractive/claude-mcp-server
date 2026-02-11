@@ -173,7 +173,7 @@ def create_claude_config():
     
     # Configurazione MCP con TUTTI i server (5 in totale)
     mcp_config = {
-        "mcpServers": {
+          "mcpServers": {
             "apify": {
               "command": "npx",
               "args": [
@@ -201,7 +201,7 @@ def create_claude_config():
               "args": [
                 "-y",
                 "mcp-remote",
-                "https://ga4-mcp-server.daniele-pisciottano.workers.dev/mcp",
+                "https://mcp-ga4-remote-v2.daniele-pisciottano.workers.dev/mcp",
                 "--transport",
                 "http-only"
               ]
@@ -245,7 +245,7 @@ def create_claude_config():
                 "--header",
                 "Authorization: Bearer AK-6af2b0d268e62afd11fd51859e5d3b02"
               ],
-              "disabled": true
+              "disabled": True
             }, 
              "mcp-gads-remote": {
               "command": "npx",
@@ -259,6 +259,7 @@ def create_claude_config():
             }
           }
         }
+    
     try:
         # Crea la directory se non esiste
         config_dir.mkdir(parents=True, exist_ok=True)
