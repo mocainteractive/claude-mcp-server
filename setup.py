@@ -173,8 +173,7 @@ def create_claude_config():
     
     # Configurazione MCP con TUTTI i server (5 in totale)
     mcp_config = {
-        {
-          "mcpServers": {
+        "mcpServers": {
             "apify": {
               "command": "npx",
               "args": [
